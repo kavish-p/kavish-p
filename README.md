@@ -1,7 +1,7 @@
 ### Hi there 👋 I am Kavish
 
 - :computer: I’m currently working on my own open-source projects.
-- :rocket: Programming Languages: Python, Java, .NET Core
+- :rocket: Programming Languages: Python, Javascript, Java, .NET Core
 
 ------
 <!---
