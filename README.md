@@ -6,3 +6,4 @@
 ------
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kavish-p&theme=dark&hide=jupyter%20notebook)](https://github.com/kavish-p)
 
+[![Kavish's GitHub stats](https://github-readme-stats.vercel.app/api?username=kavish-p)](https://github.com/kavish-p)
