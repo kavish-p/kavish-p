@@ -4,5 +4,5 @@
 - :rocket: Programming Languages: Go, Python, Javascript, Java, .NET Core
 
 ------
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kavish-p&theme=dark)](https://github.com/kavish-p)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kavish-p&theme=dark&hide=jupyter)](https://github.com/kavish-p)
 
