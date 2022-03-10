@@ -754,6 +754,120 @@ git push -u origin feature-1
 
 
 
+### Amend author of last commit
+
+```
+git commit --amend --author="Author Name <email@address.com>"
+```
+
+
+
+
+
+## Gerrit
+
+### Install
+
+```
+wget https://gerrit-releases.storage.googleapis.com/gerrit-3.5.0.war
+export GERRIT_SITE=/opt/gerrit/gerrit_testsite/
+java -jar gerrit-3.5.0.war init --batch --dev -d $GERRIT_SITE --install-all-plugins
+```
+
+
+
+### Manage
+
+```
+export GERRIT_SITE=/opt/gerrit/gerrit_testsite/
+$GERRIT_SITE/bin/gerrit.sh start/stop/restart
+```
+
+
+
+### Branches
+
+```
+# for config, e.g webhooks
+refs/meta/config
+
+# regular branches
+refs/heads/master
+refs/heads/develop
+
+# branches for code review
+refs/for/master
+refs/for/develop
+```
+
+
+
+### Pull/Push
+
+admin
+sAXsD9bc2mD/raGJ63+NDY9/bXoOtCJnHMbYJDeAcQ
+
+```
+git clone "http://gerrithost:8080/kavishrepo"
+
+# linux version
+git clone "http://gerrithost:8080/kavishrepo" && (cd "kavishrepo" && mkdir -p .git/hooks && curl -Lo `git rev-parse --git-dir`/hooks/commit-msg http://gerrithost:8080/tools/hooks/commit-msg; chmod +x `git rev-parse --git-dir`/hooks/commit-msg)
+
+# windows version
+git clone "http://gerrithost:8080/kavishrepo"
+cd "kavishrepo"
+curl -o .git/hooks/commit-msg http://gerrithost:8080/tools/hooks/commit-msg
+
+git push origin HEAD:refs/for/master
+```
+
+
+
+### Webhooks Config
+
+as admin (ssh key)
+
+```
+git clone "http://gerrithost:8080/kavishrepo"
+cd "kavishrepo"
+git fetch origin refs/meta/config:refs/remotes/origin/meta/config
+git checkout meta/config
+```
+
+
+
+### Create new branch *develop* out of *master*
+
+```
+ssh admin@gerrithost -p 29418 gerrit create-branch kavishrepo develop master
+```
+
+
+
+### Block Regular Push to Branches
+
+```
+https://stackoverflow.com/questions/16238368/gerrit-how-to-disallow-direct-push-to-master-but-allow-to-other-branches
+
+"Deny" will not work here. One should use "Block" for 'refs/heads/master' instead to override 'refs/heads/*' settings for this particular branch
+```
+
+
+
+### Merge Branches
+
+merge develop into master
+
+```
+git checkout master
+git merge --no-ff develop
+git push origin HEAD:refs/for/master
+```
+
+
+
+
+
 ## MSSQL
 
 ### Check Top Queries in MSSQL 19
