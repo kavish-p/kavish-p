@@ -752,6 +752,13 @@ git checkout -b feature-1 develop
 git push -u origin feature-1
 ```
 
+### Clone with verbose
+
+```
+# Windows
+$Env:GIT_SSH_COMMAND="ssh -v"; git clone ssh://developer@gerrithost:29418/epfdemo.git
+```
+
 
 
 ### Amend author of last commit
@@ -814,7 +821,7 @@ git clone "http://gerrithost:8080/kavishrepo"
 git clone "http://gerrithost:8080/kavishrepo" && (cd "kavishrepo" && mkdir -p .git/hooks && curl -Lo `git rev-parse --git-dir`/hooks/commit-msg http://gerrithost:8080/tools/hooks/commit-msg; chmod +x `git rev-parse --git-dir`/hooks/commit-msg)
 
 # windows version
-git clone "http://gerrithost:8080/kavishrepo"
+git clone ssh://developer@gerrithost:29418/kavishrepo
 cd "kavishrepo"
 curl -o .git/hooks/commit-msg http://gerrithost:8080/tools/hooks/commit-msg
 
@@ -912,5 +919,15 @@ run in adb shell
 
 ```
 dumpsys window windows | grep -E 'mCurrentFocus'
+```
+
+
+
+## SSH
+
+### Generate SSH key - ed25519
+
+```
+ssh-keygen -t ed25519
 ```
 
